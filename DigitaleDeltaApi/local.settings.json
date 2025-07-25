@@ -3,6 +3,6 @@
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "SQL_CONNECTION_STRING": "Driver={ODBC Driver 17 for SQL Server};Server=tcp:<server>.database.windows.net,1433;Database=<db>;Uid=<user>;Pwd=<password>;Encrypt=yes;"
+    "SQL_CONNECTION_STRING": "Driver={ODBC Driver 17 for SQL Server};Server=tcp:aquon-dev-bi-sql.database.windows.net,1433;Database=powerbi_research;Uid=tempFunction;Pwd=gJpoi4zJ1LlN8HIFqp$5EeZWhS%;Encrypt=yes;"
   }
 }
