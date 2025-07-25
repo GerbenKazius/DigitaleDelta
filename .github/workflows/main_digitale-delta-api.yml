@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'DigitaleDeltaApi' # set this to the path to your web app project, defaults to the repository root
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'DigitaleDeltaApi/function_app' # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.12' # set this to the python version to use (supports 3.6, 3.7, 3.8)
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/requirements.txt
+        run: pip install -r ./DigitaleDeltaApi/requirements.txt
 
       # Optional: Add step to run tests here
 
@@ -63,8 +63,9 @@ jobs:
         with:
           name: python-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip     
+      - name: Zip artifact for deployment
+        run: cd ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }} zip -r ../release.zip .
+ 
         
       - name: Login to Azure
         uses: azure/login@v2
